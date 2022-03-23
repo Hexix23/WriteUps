@@ -57,7 +57,7 @@ Section: Linux, RedTeam
         gobuster dir -u http://192.168.1.12/ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -s -t150 2>/dev/null
         ```
         
-        ![Untitled](Mr-Robot%201%20d399b/Untitled.png)
+        ![Untitled](Imagenes/Untitled.png)
         
     - WHATWEB
         
