@@ -1,11 +1,13 @@
 # Mr-Robot 1
 
-Dificultad: ⭐️⭐️⭐️⭐️
-Number: 1
-Section: Linux, RedTeam
--
-![MrRobot](Imagenes/Mr.-Robot-contara-como-surgio-fSociety-en-un-comic.jpg)
--
+- Dificultad: ⭐️⭐️⭐️⭐️
+- Number: 1
+- Section: Linux, RedTeam
+
+<p align="center">
+  <img src="https://github.com/Hexix23/WriteUps/blob/main/Vulnhub/MrRobot1/Imagenes/Mr.-Robot-contara-como-surgio-fSociety-en-un-comic.jpg" alt="Sublime's custom image"/>
+</p>
+
 # → Foothold:
 
 - Lo primero que vamos a realizar es identificar la maquina objetivo en nuestra red.
