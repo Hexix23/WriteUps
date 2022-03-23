@@ -5,7 +5,7 @@
 - Section: Linux, RedTeam
 
 <p align="center">
-  <img src="https://github.com/Hexix23/Imagenes/blob/62f4424c11fc9e6da1aa1ee45a6d521940f92f1c/Mr.-Robot-contara-como-surgio-fSociety-en-un-comic.jpg" alt="ImagenCustom"/>
+  <img src="https://github.com/Hexix23/WriteUps/tree/main/Vulnhub/MrRobot1/Imagenes/Mr.-Robot-contara-como-surgio-fSociety-en-un-comic.jpg" alt="ImagenCustom"/>
 </p>
 
 # → Foothold:
