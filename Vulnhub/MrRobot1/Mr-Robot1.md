@@ -60,7 +60,7 @@
         gobuster dir -u http://192.168.1.12/ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -s -t150 2>/dev/null
         ```
         
-        ![gobuster](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled.png)
+        ![gobuster](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled.png)
         
     - WHATWEB
         
@@ -68,7 +68,7 @@
         whatweb 192.168.1.12
         ```
         
-        ![whatweb](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%201.png)
+        ![whatweb](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%201.png)
         
     - NIKTO ( OSCP BAN )
         
@@ -76,14 +76,14 @@
         nikto --host http://192.168.1.12/
         ```
         
-        ![nikto](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%202.png)
+        ![nikto](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%202.png)
         
 
 ---
 
 - Web
     
-    ![web](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%203.png)
+    ![web](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%203.png)
     
 
 - Comandos:
@@ -97,24 +97,24 @@
     De todos estos comandos no sacamos nada, están para hacernos perder el tiempo.
     
 
-![comandos](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%204.png)
+![comandos](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%204.png)
 
 - Una vez en este punto, decidí empezar a buscar en los directorios / archivos que anteriormente hemos sacado con **GOBUSTER.**
     - Accedemos al archivo ***robots.txt***
         
-        ![robots.txt](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%205.png)
+        ![robots.txt](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%205.png)
         
         - Nos encontramos con ***key-1-of-3.txt ( primer key obtenida )***
     - Accedemos al archivo ***fsocity.dic*** y se nos descarga un archivo de forma local
         
-        ![diccionario](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%206.png)
+        ![diccionario](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%206.png)
         
         - Tiene toda la pinta de que es un diccionario de posibles claves.
         - Tenemos un panel de acceso de wordpress, por lo que podemos intentar realizar un ataque de fuerza bruta contra el login.
         - El único problema que tenemos ahora es buscar un usuario valido para el mismo y realizar el ataque de fuerza bruta contra ese usuario.
         - Al estar realizando una máquina cuya temática es la serie MrRobot, probé el usuario ***elliot***.
             
-            ![login](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%207.png)
+            ![login](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%207.png)
             
         - Teniendo un usuario válido, lanzaremos el ataque de fuerza bruta con la herramienta **wpscan** ( puedes utilizar cualquier otra ).
         - Para asegurarnos de que el ataque sea lo mas optimo posible, eliminaremos todos los registros que se repitan en el diccionario que nos hemos descargado antes.
@@ -129,7 +129,7 @@
         wpscan --url http://192.168.1.12/ --wp-content-dir wp-admin --usernames elliot --passwords fsocity-sorted.dic  
         ```
         
-        ![wpscan](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%208.png)
+        ![wpscan](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%208.png)
         
         > **Username:** elliot
         **Password:** ER28-0652
@@ -139,12 +139,12 @@
 
 - Accedemos con las credenciales obtenidas:
 
-![dashboard](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%209.png)
+![dashboard](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%209.png)
 
 - Después de investigar y navegar por el ***Dashboard***, encontré en ***“Appearance → Editor”*** diversos archivos ***.php*** que podemos modificar directamente.
 - Tenemos un archivo ***404.php***, el cual podemos intuir que te saltará este archivo cuando nos produzca este error, por lo que la idea es copiar el código de una reversa ***php*** dentro y forzar dicho error para establecer una conexión reversa.
 
-![reversa](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2010.png)
+![reversa](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2010.png)
 
 - Ponemos a la escucha nuestra máquina, por el puerto indicado anteriormente ( 9999 ) → Puedes poner cualquiera:
 
@@ -152,7 +152,7 @@
 nc -lvnp 9999
 ```
 
-![conexionReversa](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2011.png)
+![conexionReversa](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2011.png)
 
 - Vamos a “vitaminizar” nuestra *shell*, a una que sea un poco más interactiva, en este caso no la vamos a *upgradear* 100% interactiva ya que no nos va a hacer falta.
 
@@ -168,7 +168,7 @@ export TERM=xterm
 export SHELL=bash
 ```
 
-![shell](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2012.png)
+![shell](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2012.png)
 
 - Nos dirigimos al directorio /home/robot.
 - Nos encontramos dos archivos ahí:
@@ -200,7 +200,7 @@ su robot
 
 Con esto ya podemos acceder al contenido de key-2-of-3.txt ( segunda key )
 
-![key2](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2013.png)
+![key2](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2013.png)
 
 # → Root:
 
@@ -211,7 +211,7 @@ Con esto ya podemos acceder al contenido de key-2-of-3.txt ( segunda key )
 find / -perm -u=s -type f 2>/dev/null
 ```
 
-![suid](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2014.png)
+![suid](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2014.png)
 
 - Podemos mejorar este comando con:
 
@@ -221,7 +221,7 @@ find / -perm -u=s -type f -exec ls -la {} \; 2>/dev/null
 
 - Con este podremos ver tanto los permisos como el usuario de los mismos
 
-![permisos](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2015.png)
+![permisos](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2015.png)
 
 - Vemos que tenemos el binario de nmap que se ejecuta como **root**, lo cual es bastante raro en este tipo de CTFS.
 - Comprobamos la versión del mismo:
@@ -230,7 +230,7 @@ find / -perm -u=s -type f -exec ls -la {} \; 2>/dev/null
 nmap --version
 ```
 
-![nmap](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2016.png)
+![nmap](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2016.png)
 
 - Tras una breve búsqueda en internet, tenemos que esta versión es vulnerable y puede ejecutar una *shell* desde el modulo ***interactive*** de nmap.
 - Al ejecutarse como root, podemos presuponer que al ejecutar una *shell* una vez dentro del modulo de NMAP, se ejecutara como SUDO.
@@ -239,7 +239,7 @@ nmap --version
 nmap --interactive
 ```
 
-![interactive](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2017.png)
+![interactive](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2017.png)
 
 - Ejecutamos una *shell*:
 
@@ -247,7 +247,7 @@ nmap --interactive
 !sh
 ```
 
-![shellNmap](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2018.png)
+![shellNmap](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2018.png)
 
 `BINGO!!`
 
@@ -259,4 +259,4 @@ ls
 cat key-3-of-3.txt
 ```
 
-![final](https://github.com/Hexix23/Imagenes/blob/main/Imagenes/Untitled%2019.png)
+![final](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Imagenes/Untitled%2019.png)
