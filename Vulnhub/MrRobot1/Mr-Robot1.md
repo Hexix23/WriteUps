@@ -3,7 +3,9 @@
 Dificultad: ⭐️⭐️⭐️⭐️
 Number: 1
 Section: Linux, RedTeam
+-
 ![MrRobot](Imagenes/Mr.-Robot-contara-como-surgio-fSociety-en-un-comic.jpg)
+-
 # → Foothold:
 
 - Lo primero que vamos a realizar es identificar la maquina objetivo en nuestra red.
