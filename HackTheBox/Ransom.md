@@ -1,8 +1,8 @@
 # Ransom
 
-Dificultad: ⭐️⭐️⭐️⭐️
-Number: 1
-Section: Linux, RedTeam
+- Dificultad: ⭐️⭐️⭐️⭐️
+- Number: 1
+- Section: Linux, RedTeam
 
 <p align="center">
   <img src="https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Ransom.png" alt="ImagenCustom"/>
