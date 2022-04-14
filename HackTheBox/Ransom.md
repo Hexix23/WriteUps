@@ -1,9 +1,12 @@
 # Ransom
 
 Dificultad: ⭐️⭐️⭐️⭐️
-Number: 2
-Photo: Ransom%203c39a/Ransom.png
+Number: 1
 Section: Linux, RedTeam
+
+<p align="center">
+  <img src="https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Ransom.png" alt="ImagenCustom"/>
+</p>
 
 # Foothold:
 
@@ -96,11 +99,11 @@ http://10.10.11.153/login [200 OK] Apache[2.4.41], Bootstrap, Cookies[XSRF-TOKEN
 http://10.10.11.153/login
 ```
 
-![Untitled](Ransom%203c39a/Untitled.png)
+![web](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled.png)
 
 → Mediante la extension COOKIE EDITOR, sacamos dos TOKENS que pueden ser bastante interesantes para proceder a BYPASSEAR el login.
 
-![Untitled](Ransom%203c39a/Untitled%201.png)
+![cookieEditor](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%201.png)
 
 → Vamos a parar la petición mediante `BURPSUITE` .
 
@@ -108,7 +111,7 @@ http://10.10.11.153/login
 
 GET
 
-![Untitled](Ransom%203c39a/Untitled%202.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%202.png)
 
 → Una practica muy común es cambiar el método para ver como se comportar la página ( si lo permite ) y poder sacar información diferente.
 
@@ -116,29 +119,29 @@ GET
 
 POST
 
-![Untitled](Ransom%203c39a/Untitled%203.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%203.png)
 
 → En la respuesta podemos ver que por debajo esta utilizando un JSON, por lo que vamos a probar a alterar la peticion, forzando a utilizar en el `Content-Type` el mismo formato. 
 
 GET con PASSWORD
 
-![Untitled](Ransom%203c39a/Untitled%204.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%204.png)
 
 JSON
 
-![Untitled](Ransom%203c39a/Untitled%205.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%205.png)
 
 APPLICATION JSON]
 
 → Como podemos ver hemos conseguido alterar la respuesta escribiendo en el cuerpo del mensaje un JSON.
 
-![Untitled](Ransom%203c39a/Untitled%206.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%206.png)
 
 → A traves de la extension `WAPPALYZER`obtenemos que la web esta hecha en LARAVEL, un framework hecho en PHP.
 
 TYPE JUGGLING
 
-![Untitled](Ransom%203c39a/Untitled%207.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%207.png)
 
 → { explicada la vulnerabilidad al final del documento } ←
 
@@ -146,29 +149,29 @@ TYPE JUGGLING
 
 ### LOGIN GOOD
 
-![Untitled](Ransom%203c39a/Untitled%208.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%208.png)
 
 → Vemos que tenemos un user.txt.
 
 ### USER FLAG
 
-![Untitled](Ransom%203c39a/Untitled%209.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%209.png)
 
 ### Zip
 
 → Nos descargamos el .zip
 
-![Untitled](Ransom%203c39a/Untitled%2010.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2010.png)
 
 → Al estar encriptado el `.zip`, vamos a utilizar las herramientas `unzip / 7z` para poder sacar información de los archivos que contiene el archivo comprimido sin necesidad de acceder “directamente” a el.
 
 ### unzip
 
-![Untitled](Ransom%203c39a/Untitled%2011.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2011.png)
 
 ### 7z
 
-![Untitled](Ransom%203c39a/Untitled%2012.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2012.png)
 
 → Podemos ver que ha sido codeado a traves de `ZipCrypto Deflate`
 
@@ -190,7 +193,7 @@ TYPE JUGGLING
 
 ### help
 
-![Untitled](Ransom%203c39a/Untitled%2013.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2013.png)
 
 ### bash_logout
 
@@ -198,13 +201,13 @@ TYPE JUGGLING
 
 ### error
 
-![Untitled](Ransom%203c39a/Untitled%2014.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2014.png)
 
 → Os dejo un directorio por aqui por si no tenéis el FILE en vuestro equipo. { era mi caso por tener una máquina completamente nueva }
 
 [home/.bash_logout at master · greenmoss/home](https://github.com/greenmoss/home/blob/master/.bash_logout)
 
-![Untitled](Ransom%203c39a/Untitled%2015.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2015.png)
 
 ```bash
 -C -> archivo zip encriptado
@@ -214,7 +217,7 @@ TYPE JUGGLING
 				-> por eso es importante usar .bash_logout { suele ser standar en todos los sitemas }
 ```
 
-![Untitled](Ransom%203c39a/Untitled%2016.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2016.png)
 
 ```bash
 ./bkcrack -C uploaded-file-3422.zip -c .bash_logout -P ransom.zip -p bash_logout
@@ -226,7 +229,7 @@ TYPE JUGGLING
 ./bkcrack -C uploaded-file-3422.zip -k 7b549874 ebc25ec5 7e465e18 -U ransomDecrypt.zip password
 ```
 
-![Untitled](Ransom%203c39a/Untitled%2017.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2017.png)
 
 ```bash
 -k -> claves utilzidas en el original para la password ( 32 bits )
@@ -235,17 +238,17 @@ TYPE JUGGLING
 					gusto.
 ```
 
-![Untitled](Ransom%203c39a/Untitled%2018.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2018.png)
 
 → Ahora ya podemos acceder al contenido del `.zip` y acceder a las claves ssh.
 
-![Untitled](Ransom%203c39a/Untitled%2019.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2019.png)
 
 → El único problema que tenemos es saber el usuario con el poder conectarnos con la clave privada.
 
 → En el archivo `authorized_keys` podemos  ver al final <usuario>@<ip>.
 
-![Untitled](Ransom%203c39a/Untitled%2020.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2020.png)
 
 → Muy importante dar los permisos necesarios a la clave privada para poder utilizarla y conector por ssh a la máquina y obtener la shell.
 
@@ -254,19 +257,19 @@ $chmod 600 id_rsa
 $ssh -i id_rsa htb@10.10.11.153
 ```
 
-![Untitled](Ransom%203c39a/Untitled%2021.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2021.png)
 
 # ROOT
 
 → Lo primero que identificamos en esta maquina es que es vulnerable al `PwnKit` y antes de explotarla de esta manera, vamos a buscar otra forma de elevar privilegios.
 
-![Untitled](Ransom%203c39a/Untitled%2022.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2022.png)
 
 → Hacemos una busqueda de permisos de SGUID.
 
 → Nada relevante.
 
-![Untitled](Ransom%203c39a/Untitled%2023.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2023.png)
 
 → Me pase a la maquina el linpeas y realice un escaneo exhaustivo con la herramienta.
 
@@ -275,7 +278,7 @@ $./linpeas.sh -a > /dev/shm/linpeas.txt
 $less -r /dev/shm/linpeas.txt
 ```
 
-![Untitled](Ransom%203c39a/Untitled%2024.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2024.png)
 
 → Como podemos ver nos marca unos archivos de configuración del apache el cual esta corriendo en TCP 80.
 
@@ -299,9 +302,9 @@ $less -r /dev/shm/linpeas.txt
 
 → Buscamos de forma recursiva la palabra login.
 
-![Untitled](Ransom%203c39a/Untitled%2025.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2025.png)
 
-![Untitled](Ransom%203c39a/Untitled%2026.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2026.png)
 
 → Nos fijamos en la clase `AuthController`
 
@@ -311,32 +314,32 @@ $less -r /dev/shm/linpeas.txt
 $grep -r "AuthController"
 ```
 
-![Untitled](Ransom%203c39a/Untitled%2027.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2027.png)
 
 → Encontramos un archivo .php.
 
 → Cuando lo abrimos encontramos una contraseña con la cual podríamos utilizarla para autenticarnos como root ( reutilización de contraseñas ).
 
-![Untitled](Ransom%203c39a/Untitled%2028.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2028.png)
 
 → Tenemos dos opciones:
 
 - Conectarnos via SSH con el usuario root y la password anterior
 - sudo root
 
-![Untitled](Ransom%203c39a/Untitled%2029.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2029.png)
 
 → Ya somos root
 
-![Untitled](Ransom%203c39a/Untitled%2030.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2030.png)
 
-![Untitled](Ransom%203c39a/Untitled%2031.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2031.png)
 
 ## Type Juggling
 
 → Una vez tenemos acceso al código fuente de la web podemos explicar de forma mas clara como hemos explotado la vulnerabilidad para bypassear el login.
 
-![Untitled](Ransom%203c39a/Untitled%2028.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/RansomImages/Untitled%2028.png)
 
 → Podemos ver que hace una simple comparación para validad la contraseña correcta.
 
