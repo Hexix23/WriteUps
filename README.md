@@ -8,5 +8,5 @@
 |  |  |  |  |
 | [Ransom](https://github.com/Hexix23/WriteUps/blob/main/HackTheBox/Ransom.md) | 13/04/2022 | Medium | Hack The Box |
 |  |  |  |  |
-| [Jeeves](https://github.com/Hexix23/WriteUps/blob/main/HackTheBox/Jeeves.md) | 13/04/2022 | Medium | Hack The Box |
+| [Jeeves](https://github.com/Hexix23/WriteUps/blob/main/HackTheBox/Jeeves.md) | 17/04/2022 | Medium | Hack The Box |
 |  |  |  |  |
