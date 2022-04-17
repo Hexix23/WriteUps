@@ -1,9 +1,12 @@
 # Jeeves
 
-Dificultad: ⭐️⭐️⭐️⭐️
-Number: 4
-Photo: Jeeves%206da7c/Jeeves.png
-Section: HackTheBox, RedTeam, Windows
+- Dificultad: ⭐️⭐️⭐️⭐️
+- Number: 4
+- Section: HackTheBox, RedTeam, Windows
+
+<p align="center">
+  <img src="https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Jeeves.png" alt="ImagenCustom"/>
+</p>
 
 # FOOTHOLD
 
@@ -154,11 +157,11 @@ http://10.10.10.63/ [200 OK] Country[RESERVED][ZZ], HTML5, HTTPServer[Microsoft-
 
 - Nos encontramos un simple buscador.
     
-    ![Untitled](Jeeves%206da7c/Untitled.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled.png)
     
 - Busquemos lo que busquemos nos sale el `PNG` con el `MSG` de error.
     
-    ![Untitled](Jeeves%206da7c/Untitled%201.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%201.png)
     
 - Buscando en internet, encuentras facilmente que el error que se refleja en la imagen es un posible vector de entrada para explotar via una Blind SQL injection. { Microsoft SQL Server 2005 }
     
@@ -174,27 +177,27 @@ http://10.10.10.63/ [200 OK] Country[RESERVED][ZZ], HTML5, HTTPServer[Microsoft-
 
 - Aparentemente en la pagina principal no tenemos absolutamente nada.
 
-![Untitled](Jeeves%206da7c/Untitled%202.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%202.png)
 
 - Un link que nos lleva a la típica pagina de información.
 
-![Untitled](Jeeves%206da7c/Untitled%203.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%203.png)
 
 - Gobuster descubrió un directorio oculto: `/askjeeves`
 - Accedemos directamente a un panel de control.
 
-![Untitled](Jeeves%206da7c/Untitled%204.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%204.png)
 
 - Investigando un poco encontramos un consola que podemos escribir scripts personalizados.
 
-![Untitled](Jeeves%206da7c/Untitled%205.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%205.png)
 
 - El lenguaje que utiliza es **Groovy**.
 - Ejecutamos una reversa para lograr una SHELL a la maquina.
 
 [Groovy Script - Remote Code Execution](https://coldfusionx.github.io/posts/Groovy_RCE/)
 
-![Untitled](Jeeves%206da7c/Untitled%206.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%206.png)
 
 - En la maquina local, ejecutamos `NETCAT` con `RLWRAP` para que, al ser un sistema windows, tengamos una reversa más o menos interactiva.
 
@@ -202,20 +205,20 @@ http://10.10.10.63/ [200 OK] Country[RESERVED][ZZ], HTML5, HTTPServer[Microsoft-
 rlwrap nc -lvnp 4444
 ```
 
-![Untitled](Jeeves%206da7c/Untitled%207.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%207.png)
 
 - Una vez dentro accedemos, curiosamente, a un directorio por debajo del Administrator.
 - No nos deja acceder a él.
 
-![Untitled](Jeeves%206da7c/Untitled%208.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%208.png)
 
 - Accedemos al directorio raíz para realizar una búsqueda recursiva de la flag user.txt
 
-![Untitled](Jeeves%206da7c/Untitled%209.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%209.png)
 
-![Untitled](Jeeves%206da7c/Untitled%2010.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2010.png)
 
-![Untitled](Jeeves%206da7c/Untitled%2011.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2011.png)
 
 # ROOT
 
@@ -228,11 +231,11 @@ rlwrap nc -lvnp 4444
     - secret.key
     - secret.key.not-so-secret
     
-    ![Untitled](Jeeves%206da7c/Untitled%2012.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2012.png)
     
-    ![Untitled](Jeeves%206da7c/Untitled%2013.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2013.png)
     
-    ![Untitled](Jeeves%206da7c/Untitled%2014.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2014.png)
     
 
 > Spoiler { ninguno sirve de nada } ( por ahora ).
@@ -241,11 +244,11 @@ rlwrap nc -lvnp 4444
 - Buscando un poco encontramos un archivo interesante en su directorio:
     - `CEH.kdbx`
     
-    ![Untitled](Jeeves%206da7c/Untitled%2015.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2015.png)
     
 - Haciendo una búsqueda rápida en internet, vemos que esa extension pertenece a un archivo de KeePass.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2016.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2016.png)
     
 - Para poder operar con este archivo tenemos que pasárnoslo a nuestra máquina local.
 - Al estar en un sistema windows, es un poquito mas complicado que abrir un servidor con python y descargando el archivo mediante wget.
@@ -290,19 +293,19 @@ rlwrap nc -lvnp 4444
     -> sharePath = miPath
     ```
     
-    ![Untitled](Jeeves%206da7c/Untitled%2017.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2017.png)
     
 - En nuestra máquina vamos a crear el directorio “miPath”, ya que de `impacket-smbserver` va a descargar ahi el archivo.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2018.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2018.png)
     
 - Descargamos el archivo { lo copiamos para ser exactos }.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2019.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2019.png)
     
 - Gracias a los magic numbers podemos comprobar que estábamos en lo cierto.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2020.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2020.png)
     
 - Nos descargamos `keepassxc` para poder utilizarlo en kali.
     
@@ -312,11 +315,11 @@ rlwrap nc -lvnp 4444
     
 - Nos pide una contraseña.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2021.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2021.png)
     
 - Vamos a utilizar la herramienta `keepass2john`, la cual nos va a proporcionar el hash para posteriormente intentar crackearlo con `john`.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2022.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2022.png)
     
     ```bash
     // Fallido \\
@@ -335,11 +338,11 @@ rlwrap nc -lvnp 4444
     
 - Logramos acceso al archivo.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2023.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2023.png)
     
 - La primera password podemos algo especial, tiene aspecto a un hash de windows.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2024.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2024.png)
     
     ```bash
     aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00
@@ -352,7 +355,7 @@ rlwrap nc -lvnp 4444
     > 
 - Vemos que usuarios tenemos en windows.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2025.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2025.png)
     
 - A través de la herramienta `crackmapexec` y mediante el protocolo `smb`, sabiendo que el usuario `Administrator` esta en el sistema e indicándole el hash extraído antes, vamos a comprobar si podemos utilizar dicho hash para autenticarnos como ese usuario.
     
@@ -362,7 +365,7 @@ rlwrap nc -lvnp 4444
     
     - **Pwn3d!**
     
-    ![Untitled](Jeeves%206da7c/Untitled%2026.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2026.png)
     
 - Mediante la herramienta `psexec` y a traves del `WORKGROUP` y con el usuario y hash anterior vamos a ejecutar una shell de sistema privilegiada.
     
@@ -370,11 +373,11 @@ rlwrap nc -lvnp 4444
     psexec.py WORKGROUP/Administrator@10.10.10.63 -hashes :e0fb1fb85756c24235ff238cbe81fe00
     ```
     
-    ![Untitled](Jeeves%206da7c/Untitled%2027.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2027.png)
     
 - Nos dirigimos al escritorio del usuario y nos encontramos un archivo .txt.
     
-    ![Untitled](Jeeves%206da7c/Untitled%2028.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2028.png)
     
 - Cuando printeamos el archivo nos dice que miremos “ mas al fondo “.
 - Este artículo explica muy bien lo que esta ocurriendo:
@@ -408,7 +411,7 @@ rlwrap nc -lvnp 4444
     
 - Tenemos la flag del ROOT:
     
-    ![Untitled](Jeeves%206da7c/Untitled%2029.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2029.png)
     
 
 ### Forma 2 —> Potato Attack { OSCP STYLE }
@@ -493,7 +496,7 @@ rlwrap nc -lvnp 4444
     				porque puede ser motivo de fallo.
     ```
     
-    ![Untitled](Jeeves%206da7c/Untitled%2030.png)
+    ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2030.png)
     
 - Como vemos hemos creado el usuario `helix` en el sistema.
     
@@ -579,4 +582,4 @@ SMB         10.10.10.63     445    JEEVES           [+] Jeeves\helix:helix123#$ 
 psexec.py WORKGROUP/helix@10.10.10.63 cmd.exe
 ```
 
-![Untitled](Jeeves%206da7c/Untitled%2031.png)
+![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2031.png)
