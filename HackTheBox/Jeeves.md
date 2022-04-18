@@ -179,7 +179,7 @@ http://10.10.10.63/ [200 OK] Country[RESERVED][ZZ], HTML5, HTTPServer[Microsoft-
 
 ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%202.png)
 
-- Un link que nos lleva a la típica pagina de información.
+- Un link que nos lleva a la típica página de información.
 
 ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%203.png)
 
@@ -193,13 +193,13 @@ http://10.10.10.63/ [200 OK] Country[RESERVED][ZZ], HTML5, HTTPServer[Microsoft-
 ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%205.png)
 
 - El lenguaje que utiliza es **Groovy**.
-- Ejecutamos una reversa para lograr una SHELL a la maquina.
+- Ejecutamos una reversa para lograr una SHELL a la máquina.
 
 [Groovy Script - Remote Code Execution](https://coldfusionx.github.io/posts/Groovy_RCE/)
 
 ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%206.png)
 
-- En la maquina local, ejecutamos `NETCAT` con `RLWRAP` para que, al ser un sistema windows, tengamos una reversa más o menos interactiva.
+- En la máquina local, ejecutamos `NETCAT` con `RLWRAP` para que, al ser un sistema windows, tengamos una reversa más o menos interactiva.
 
 ```bash
 rlwrap nc -lvnp 4444
@@ -251,11 +251,11 @@ rlwrap nc -lvnp 4444
     ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2016.png)
     
 - Para poder operar con este archivo tenemos que pasárnoslo a nuestra máquina local.
-- Al estar en un sistema windows, es un poquito mas complicado que abrir un servidor con python y descargando el archivo mediante wget.
+- Al estar en un sistema windows, es un poquito más complicado que abrir un servidor con python y descargando el archivo mediante wget.
 
 > “***Impacket is a collection of Python classes for working with network protocols. Impacket is focused on providing low-level programmatic access to the packets and for some protocols (e.g. SMB1-3 and MSRPC) the protocol implementation itself. Packets can be constructed from scratch, as well as parsed from raw data, and the object-oriented API makes it simple to work with deep hierarchies of protocols. The library provides a set of tools as examples of what can be done within the context of this library.***”
 > 
-- Vamos a abrir habilitar un recurso a nivel de red a traves de `SMB` para poder pasarnos a nuestra maquina el archivo.
+- Vamos a abrir habilitar un recurso a nivel de red a través de `SMB` para poder pasarnos a nuestra máquina el archivo.
     
     ```bash
     $impacket-smbserver -h
@@ -357,7 +357,7 @@ rlwrap nc -lvnp 4444
     
     ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2025.png)
     
-- A través de la herramienta `crackmapexec` y mediante el protocolo `smb`, sabiendo que el usuario `Administrator` esta en el sistema e indicándole el hash extraído antes, vamos a comprobar si podemos utilizar dicho hash para autenticarnos como ese usuario.
+- A través de la herramienta `crackmapexec` y mediante el protocolo `smb`, sabiendo que el usuario `Administrator` está en el sistema e indicándole el hash extraído antes, vamos a comprobar si podemos utilizar dicho hash para autenticarnos como ese usuario.
     
     ```bash
     crackmapexec smb 10.10.10.63 -u 'Administrator' -H 'e0fb1fb85756c24235ff238cbe81fe00'
@@ -367,7 +367,7 @@ rlwrap nc -lvnp 4444
     
     ![Untitled](https://github.com/Hexix23/WriteUps/blob/main/.gitbook/assets/Jeeves/Untitled%2026.png)
     
-- Mediante la herramienta `psexec` y a traves del `WORKGROUP` y con el usuario y hash anterior vamos a ejecutar una shell de sistema privilegiada.
+- Mediante la herramienta `psexec` y a través del `WORKGROUP` y con el usuario y hash anterior vamos a ejecutar una shell de sistema privilegiada.
     
     ```bash
     psexec.py WORKGROUP/Administrator@10.10.10.63 -hashes :e0fb1fb85756c24235ff238cbe81fe00
